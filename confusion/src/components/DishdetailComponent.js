@@ -25,7 +25,7 @@ import CommentForm from './CommentForm';
         }
     }
 
-    function RenderComment({comments}) {
+    function RenderComment({comments, addComment, dishId}) {
         if (comments != null) {
             const commentList = comments.map(comment => {
             const options = {
@@ -53,7 +53,7 @@ import CommentForm from './CommentForm';
                   <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
                     {commentList}
-                    <CommentForm />
+                    <CommentForm dishId={dishId} addComment={addComment} />
                   </div>
                 );
             }
@@ -81,7 +81,7 @@ import CommentForm from './CommentForm';
                     </div>
                     <div className="row">
                         <RenderDish dish={props.dish} /> 
-                        <RenderComment comments={props.comments} />
+                        <RenderComment comments={props.comments} addComment={props.addComment} dishId={props.dish.id} />
                     </div>
                 </div>
             )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 function RenderLeader({leaders}) {
@@ -10,7 +10,7 @@ function RenderLeader({leaders}) {
                         return (
                             <div className="row mt-4 mr-auto ml-auto">
                                 <div className="col-12 col-md-2">
-                                    <img src={leader.image} />
+                                    <img alt="leader's name" src={leader.image} />
                                 </div>
                                 <div className="col-12 col-md-8 ">
                                     <h3>{leader.name}</h3>  
@@ -28,12 +28,6 @@ function RenderLeader({leaders}) {
 }
 
 function About(props) {
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <p>Leader {leader.name}</p>
-        );
-    });
-
     return(
         <div className="container">
             <div className="row">

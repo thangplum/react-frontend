@@ -44,10 +44,20 @@ class Main extends Component {
   render(){
 
     const HomePage = () => {
+      console.log(this.props.promotions.promotions);
         return (
-            <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]} 
+            // <Home 
+            // promotions={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
+            // leader={this.props.leaders.filter((leader) => leader.featured)[0]} promosLoading={this.props.promotions.isLoading} promosErrMess={this.props.promotions.errMess} />
+            <Home 
+            dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
+            dishesLoading={this.props.dishes.isLoading}
+            dishErrMess={this.props.dishes.errMess}
             promotions={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
-            leader={this.props.leaders.filter((leader) => leader.featured)[0]} dishesLoading={this.props.dishes.isLoading} dishErrMess={this.props.dishes.errMess} promosLoading={this.props.promotions.isLoading} promosErrMess={this.props.promotions.errMess} />
+            promosLoading={this.props.promotions.isLoading}
+            promosErrMess={this.props.promotions.errMess}
+            leader={this.props.leaders.filter((leader) => leader.featured)[0]}
+        />
         )
     }
 

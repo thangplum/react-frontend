@@ -145,7 +145,6 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
     
         handleSubmit(values) {
             this.toggle();
-            console.log(values)
             this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
         }
     

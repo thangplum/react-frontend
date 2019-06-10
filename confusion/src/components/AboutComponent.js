@@ -1,18 +1,30 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import {Loading} from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
+import {FadeTransform, Stagger} from 'react-animation-components';
 
-function RenderLeader({leaders}) {
-    if (leaders != null) {
+function RenderLeader({item, isLoading, errMess}) {
+    if (isLoading) {
+        return (
+            <Loading />
+        )
+    } else if (errMess) {
+        return (
+            <h4>{process.errMess}</h4>
+        )
+    } else {
+        console.log(item)
         return (
             <div className="container">
-                    {leaders.map((leader) => {
+                    {item.map((leader) => {
                         return (
                             <div className="row mt-4 mr-auto ml-auto">
                                 <div className="col-12 col-md-2">
-                                    <img alt="leader's name" src={leader.image} />
+                                    <img alt="leader's name" src={baseUrl + leader.image} />
                                 </div>
-                                <div className="col-12 col-md-8 ">
+                                <div className="col-12 col-md-8">
                                     <h3>{leader.name}</h3>  
                                     <p>{leader.designation}</p>   
                                     <p>{leader.description}</p>          
@@ -81,10 +93,9 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
-                    <RenderLeader leaders={props.leaders} />
-                </div>
-                <div className="col-12">
-                    
+                    <Stagger in delay="250">
+                        <RenderLeader item={props.leaders.leaders} isLoading={props.leadersLoading} errMess={props.leadersErrMess} />
+                    </Stagger>
                 </div>
             </div>
         </div>

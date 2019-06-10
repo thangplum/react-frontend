@@ -3,7 +3,7 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader } from 'reactstr
 import { Link } from 'react-router-dom';
 import {Loading} from './LoadingComponent';
 import {baseUrl} from '../shared/baseUrl';
-import {FadeTransform, Stagger} from 'react-animation-components';
+import { Stagger} from 'react-animation-components';
 
 function RenderLeader({item, isLoading, errMess}) {
     if (isLoading) {
